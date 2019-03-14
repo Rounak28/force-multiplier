@@ -35,7 +35,7 @@ const signup = (req, res, next) =>
 					userCode: req.body.userCode,
 					
 					createdAt: new Date()
-				}, async (err, results) =>
+				}, (err, results) =>
 				{
 					if(err) { return res.boom.badRequest(err); }
 
