@@ -21,12 +21,13 @@ const userSchema = mongoose.Schema({
 		required: true,
 	},
 	taskQueue:
-
-		[{
-			taskId: {
-				type: Schema.ObjectId, ref: 'task'
-			}
-		}],
+	{
+		taskId: {
+			type: Schema.ObjectId, ref: 'task'
+		},
+		min: { type: Number }
+		, type: Array
+	},
 
 
 	userLocation: {

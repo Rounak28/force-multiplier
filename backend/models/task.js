@@ -21,7 +21,7 @@ const taskSchema = mongoose.Schema({
     },
 	taskStatus: {
         type: String,
-        default: 'InProgress'
+        default: 'Pending'
     },
     field_id: {
         type: String
