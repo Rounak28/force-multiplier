@@ -221,6 +221,23 @@
 				"description": ""
 			},
 			"response": []
+		},
+		{
+			"name": "Check out",
+			"request": {
+				"url": "{{localhost}}/api/check-out/5c8b5559213ad31b7df571c5",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbEFkZHJlc3MiOiJmaWVsZEBnbWFpbC5jb20iLCJ1c2VySWQiOiI1YzhiNTQ2NjIxM2FkMzFiN2RmNTcxYzIiLCJ1c2VyQ29kZSI6ImZpZWxkIiwiaWF0IjoxNTUyNjM1MzIzLCJleHAiOjE1NTMyNDAxMjN9.K6ff3dcM8G-oTQDOFhqK_WxJIJynTOsuaK0c9-pZaqY",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
 		}
 	]
 }
