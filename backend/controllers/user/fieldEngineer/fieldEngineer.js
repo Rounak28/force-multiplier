@@ -52,9 +52,8 @@ module.exports = {
         }
     },
     getfieldengdata: (req, res) => {
-        let userId = req.params.userId;
-
-        User.findById(req.params.userId, "-password -__v -taskQueue.min").populate({
+       
+        User.findById(req.userData.userId, "-password -__v -taskQueue.min").populate({
             path: 'taskQueue.taskId'
 
         }).exec((err, result) => {
