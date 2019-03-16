@@ -21,13 +21,15 @@ const userSchema = mongoose.Schema({
 		required: true,
 	},
 	taskQueue:
-	{
-		taskId: {
-			type: Schema.ObjectId, ref: 'task'
-		},
-		min: { type: Number }
-		, type: Array
-	},
+		[
+			{
+				taskId: {
+					type: Schema.ObjectId, ref: 'task'
+				},
+
+				min: { type: Number }
+			}
+		],
 
 
 	userLocation: {
@@ -44,4 +46,4 @@ const userSchema = mongoose.Schema({
 });
 
 userSchema.plugin(uniqueValidator);
-module.exports = mongoose.model("users", userSchema);
+module.exports = mongoose.model("user", userSchema);

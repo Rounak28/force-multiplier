@@ -53,14 +53,16 @@ module.exports = {
     },
     getfieldengdata: (req, res) => {
        
-        User.findById(req.userData.userId, "-password -__v -taskQueue.min").populate({
+        User.findOne({_id: req.userData.userId}, "-password  -taskQueue.min -taskQueue._id").populate({
             path: 'taskQueue.taskId'
-
+           
         }).exec((err, result) => {
+            
             let taskQueue = [];
+            console.log(result);
             for(let task of result.taskQueue){
-                
-            taskQueue.push(task.taskId)
+            
+            taskQueue.push(task)
             }
             return res.status(200).json({
                 results:
