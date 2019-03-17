@@ -1,16 +1,13 @@
 {
-	"variables": [],
 	"info": {
+		"_postman_id": "67f757e1-55eb-4d4c-9a53-64b2212cec3b",
 		"name": "ForceMultiplier",
-		"_postman_id": "9c76baa1-09fb-229b-0b47-3435de88ab04",
-		"description": "",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "SignUp",
 			"request": {
-				"url": "{{localhost}}/api/signup",
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -19,43 +16,46 @@
 						{
 							"key": "name",
 							"value": "Krunal",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "emailAddress",
 							"value": "k@gmail.com",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "password",
 							"value": "killall",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "userCode",
 							"value": "support",
-							"description": "",
 							"type": "text"
 						}
 					]
 				},
-				"description": ""
+				"url": {
+					"raw": "{{localhost}}/api/signup",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"api",
+						"signup"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "Login",
 			"request": {
-				"url": "{{localhost}}/api/login",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
 						"value": "application/x-www-form-urlencoded",
-						"description": "",
 						"disabled": true
 					}
 				],
@@ -65,37 +65,41 @@
 						{
 							"key": "emailAddress",
 							"value": "b@gmail.com",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "password",
 							"value": "killall",
-							"description": "",
 							"type": "text"
 						}
 					]
 				},
-				"description": ""
+				"url": {
+					"raw": "{{localhost}}/api/login",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "SET Field Engineer Location with status",
 			"request": {
-				"url": "{{localhost}}/api/setfieldengdata",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
 						"value": "application/x-www-form-urlencoded",
-						"description": "",
 						"disabled": true
 					},
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbEFkZHJlc3MiOiJiQGdtYWlsLmNvbSIsInVzZXJJZCI6IjVjN2UwMjhmZDU2MDBhMjFmNjhkNWEwNSIsInVzZXJDb2RlIjoiZmllbGQiLCJpYXQiOjE1NTE3NjIyNTgsImV4cCI6MTU1MjM2NzA1OH0.4Mgh7rnOuGkJyW9YziVOI5CiWGCO3P_XpCOuw_4m2vY",
-						"description": ""
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbEFkZHJlc3MiOiJiQGdtYWlsLmNvbSIsInVzZXJJZCI6IjVjN2UwMjhmZDU2MDBhMjFmNjhkNWEwNSIsInVzZXJDb2RlIjoiZmllbGQiLCJpYXQiOjE1NTE3NjIyNTgsImV4cCI6MTU1MjM2NzA1OH0.4Mgh7rnOuGkJyW9YziVOI5CiWGCO3P_XpCOuw_4m2vY"
 					}
 				],
 				"body": {
@@ -104,42 +108,45 @@
 						{
 							"key": "latitude",
 							"value": "23.9",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "longitude",
 							"value": "28.8",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "status",
 							"value": "Idle",
-							"description": "",
 							"type": "text"
 						}
 					]
 				},
-				"description": ""
+				"url": {
+					"raw": "{{localhost}}/api/setfieldengdata",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"api",
+						"setfieldengdata"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "Set Task",
 			"request": {
-				"url": "{{localhost}}/api/set-task",
 				"method": "POST",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbEFkZHJlc3MiOiJrQGdtYWlsLmNvbSIsInVzZXJJZCI6IjVjN2UwMmIxZDU2MDBhMjFmNjhkNWEwNyIsInVzZXJDb2RlIjoic3VwcG9ydCIsImlhdCI6MTU1MTc2MjExMCwiZXhwIjoxNTUyMzY2OTEwfQ.Ee0KmimoGFymqv9wzRNdc6c_vSF7Y2o3xelnQStedJs",
-						"description": ""
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbEFkZHJlc3MiOiJrQGdtYWlsLmNvbSIsInVzZXJJZCI6IjVjN2UwMmIxZDU2MDBhMjFmNjhkNWEwNyIsInVzZXJDb2RlIjoic3VwcG9ydCIsImlhdCI6MTU1MTc2MjExMCwiZXhwIjoxNTUyMzY2OTEwfQ.Ee0KmimoGFymqv9wzRNdc6c_vSF7Y2o3xelnQStedJs"
 					},
 					{
 						"key": "Content-Type",
 						"value": "application/x-www-form-urlencoded",
-						"description": "",
 						"disabled": true
 					}
 				],
@@ -149,93 +156,128 @@
 						{
 							"key": "custName",
 							"value": "name",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "latitude",
 							"value": "23.07692",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "longitude",
 							"value": "2.524775",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "reqTime",
 							"value": "100",
-							"description": "",
 							"type": "text"
 						},
 						{
 							"key": "description",
 							"value": "THIS IS TASK DESCRIPTION",
-							"description": "",
 							"type": "text"
 						}
 					]
 				},
-				"description": ""
+				"url": {
+					"raw": "{{localhost}}/api/set-task",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"api",
+						"set-task"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "Assign Eng",
 			"request": {
-				"url": "{{localhost}}/api/assign-eng/5c7e02e3d5600a21f68d5a08",
 				"method": "GET",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbEFkZHJlc3MiOiJrQGdtYWlsLmNvbSIsInVzZXJJZCI6IjVjN2UwMmIxZDU2MDBhMjFmNjhkNWEwNyIsInVzZXJDb2RlIjoic3VwcG9ydCIsImlhdCI6MTU1MTc2MjExMCwiZXhwIjoxNTUyMzY2OTEwfQ.Ee0KmimoGFymqv9wzRNdc6c_vSF7Y2o3xelnQStedJs",
-						"description": ""
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbEFkZHJlc3MiOiJrQGdtYWlsLmNvbSIsInVzZXJJZCI6IjVjN2UwMmIxZDU2MDBhMjFmNjhkNWEwNyIsInVzZXJDb2RlIjoic3VwcG9ydCIsImlhdCI6MTU1MTc2MjExMCwiZXhwIjoxNTUyMzY2OTEwfQ.Ee0KmimoGFymqv9wzRNdc6c_vSF7Y2o3xelnQStedJs"
 					},
 					{
 						"key": "Content-Type",
 						"value": "application/x-www-form-urlencoded",
-						"description": "",
 						"disabled": true
 					}
 				],
-				"body": {},
-				"description": ""
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{localhost}}/api/assign-eng/5c7e02e3d5600a21f68d5a08",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"api",
+						"assign-eng",
+						"5c7e02e3d5600a21f68d5a08"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "Get Field Engineer Data with TASKS",
 			"request": {
-				"url": "{{localhost}}/api/getfieldengdata/5c7e028fd5600a21f68d5a05",
 				"method": "GET",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbEFkZHJlc3MiOiJiQGdtYWlsLmNvbSIsInVzZXJJZCI6IjVjN2UwMjhmZDU2MDBhMjFmNjhkNWEwNSIsInVzZXJDb2RlIjoiZmllbGQiLCJpYXQiOjE1NTIzOTQzODAsImV4cCI6MTU1Mjk5OTE4MH0.nhhlIMdf9Nf8PRoiGwtmSrBcwYab8CXJsQHwUMtL1FA",
-						"description": ""
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbEFkZHJlc3MiOiJmaWVsZEBnbWFpbC5jb20iLCJ1c2VySWQiOiI1YzhiNTQ2NjIxM2FkMzFiN2RmNTcxYzIiLCJ1c2VyQ29kZSI6ImZpZWxkIiwiaWF0IjoxNTUyNzQzNjc1LCJleHAiOjE1NTMzNDg0NzV9.tVAFISf8s63oSROqiy4aOYR5Z72J609MG_Xc2Nie5FY"
 					}
 				],
-				"body": {},
-				"description": ""
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{localhost}}/api/getfieldengdata",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"api",
+						"getfieldengdata"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "Check out",
 			"request": {
-				"url": "{{localhost}}/api/check-out/5c8b5559213ad31b7df571c5",
 				"method": "GET",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbEFkZHJlc3MiOiJmaWVsZEBnbWFpbC5jb20iLCJ1c2VySWQiOiI1YzhiNTQ2NjIxM2FkMzFiN2RmNTcxYzIiLCJ1c2VyQ29kZSI6ImZpZWxkIiwiaWF0IjoxNTUyNjM1MzIzLCJleHAiOjE1NTMyNDAxMjN9.K6ff3dcM8G-oTQDOFhqK_WxJIJynTOsuaK0c9-pZaqY",
-						"description": ""
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbEFkZHJlc3MiOiJmaWVsZEBnbWFpbC5jb20iLCJ1c2VySWQiOiI1YzhiNTQ2NjIxM2FkMzFiN2RmNTcxYzIiLCJ1c2VyQ29kZSI6ImZpZWxkIiwiaWF0IjoxNTUyNjM1MzIzLCJleHAiOjE1NTMyNDAxMjN9.K6ff3dcM8G-oTQDOFhqK_WxJIJynTOsuaK0c9-pZaqY"
 					}
 				],
-				"body": {},
-				"description": ""
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{localhost}}/api/check-out/5c8b5559213ad31b7df571c5",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"api",
+						"check-out",
+						"5c8b5559213ad31b7df571c5"
+					]
+				}
 			},
 			"response": []
 		}
