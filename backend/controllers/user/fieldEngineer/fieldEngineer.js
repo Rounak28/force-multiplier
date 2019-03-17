@@ -62,7 +62,7 @@ module.exports = {
             console.log(result);
             for(let task of result.taskQueue){
             
-            taskQueue.push(task)
+            taskQueue.push(task.taskId)
             }
             return res.status(200).json({
                 results:
