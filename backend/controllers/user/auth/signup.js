@@ -10,7 +10,7 @@ const signup = (req, res, next) => {
 			emailAddress: Joi.string().email().required().error(new Error(res.__('INVALID_EMAIL'))),
 			password: Joi.string().regex(/^[a-zA-Z0-9]/).required().error(new Error(res.__('INVALID_PASSWORD_FORMAT'))),
 			userCode: Joi.string().valid('field', 'support').required().error(new Error(res.__('USER_MUST_FIELD_OR_SUPPORT'))),
-			deviceId: Joi.string()
+			
 		}));
 
 		if (result.error) { return res.boom.badRequest(result.error); }

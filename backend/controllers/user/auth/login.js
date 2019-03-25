@@ -39,7 +39,7 @@ const login = (req, res, next) => {
 				emailAddress: results.emailAddress,
 				userId: results._id,
 				userCode: results.userCode
-				
+
 			}, global.gConfig.secret_key, {
 				expiresIn: "7d"
 			});
