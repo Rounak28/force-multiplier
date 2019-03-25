@@ -7,7 +7,8 @@ const login = (req, res, next) => {
 	try {
 		const result = Joi.validate(req.body, Joi.object().keys({
 			emailAddress: Joi.string().email().required().error(new Error(res.__('INVALID_EMAIL'))),
-			password: Joi.string().regex(/^[a-zA-Z0-9]/).required().error(new Error(res.__('INVALID_PASSWORD_FORMAT')))
+			password: Joi.string().regex(/^[a-zA-Z0-9]/).required().error(new Error(res.__('INVALID_PASSWORD_FORMAT'))),
+			deviceId: Joi.string()
 		}));
 
 		if (result.error) {
