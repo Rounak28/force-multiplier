@@ -38,11 +38,8 @@ const signup = (req, res, next) => {
 
 				if (req.body.userCode == 'field') {
 
-					if (req.body.deviceId == null || req.body.deviceId == undefined || req.body.deviceId == '') {
-						return res.boom.badRequest('DeviceId required for push notification.')
-					}
-					results.deviceId = req.body.deviceId;
-					results.save();
+				
+					
 					return res.status(200).json({
 						results: {
 							f_id: results._id,
