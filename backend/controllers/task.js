@@ -5,7 +5,7 @@ const Joi = require('joi');
 
 const User = require("../models/user");
 
-
+const pushNotify = require("../push_notification")
 const mongoose = require('mongoose');
 
 const earthradius = 6371
@@ -62,9 +62,26 @@ module.exports = {
 
             }, (err, task) => {
                 if (err) { return res.boom.badRequest(); }
-                return res.status(200).json({
-                    task: task
+                User.find({ userCode: 'field' }, "deviceId -_id", (err, user_result) => {
+
+                    let temp = user_result.map((data) => {
+                        return data.deviceId;
+                    });
+                    var payloadMulticast = {
+                        registration_ids: temp,
+                        // data: {
+                        //     url: "news"
+                        // },
+                        priority: 'high',
+                        content_available: true,
+                        notification: { title: 'Hello Engineer', body: 'New task created.', sound: "default", badge: "1" }
+                    };
+                    pushNotify.pushNotify(payloadMulticast);
+                    return res.status(200).json({
+                        task: task
+                    })
                 })
+
             });
         }
         catch (error) {
@@ -105,19 +122,31 @@ module.exports = {
                 }
                 task_result.taskStatus = 'InProgress';
                 task_result.save();
-                User.findById(min_user_id, (err, result) => {
+                User.findById(min_user_id, (err, user_result) => {
                     if (err) { return res.boom.badRequest(err); }
-                    if (!result) { return res.boom.notFound() }
-                    result.taskQueue.push({ taskId, min });
-                    if (result.taskQueue.length == 3) {
-                        result.userLocation.status = 'Buzy' //SET ENG TO BUZY STATE, ONCE QUEUE FULL WITH 3 TASK
+                    if (!user_result) { return res.boom.notFound() }
+                    user_result.taskQueue.push({ taskId, min });
+                    if (user_result.taskQueue.length == 3) {
+                        user_result.userLocation.status = 'Buzy' //SET ENG TO BUZY STATE, ONCE QUEUE FULL WITH 3 TASK
                     }
-                    result.save()
+                    user_result.save();
+                    var payloadMulticast = {
+                        registration_ids: [ user_result.deviceId ],
+                        // data: {
+                        //     url: "news"
+                        // },
+                        priority: 'high',
+                        content_available: true,
+                        notification: { title: 'Hello Engineer', body: 'New Task Assigned to you.', sound: "default", badge: "1" }
+                    };
+                    let confirmation = pushNotify.pushNotify(payloadMulticast); //true | false
+
+
                     return res.status(200).json({
                         results:
                         {
                             taskId: taskId,
-                            fieldEngineer: result.name
+                            fieldEngineer: user_result.name
                         }
                     })
                 })
@@ -126,7 +155,7 @@ module.exports = {
     },
     checkout: (req, res) => {
         let taskId = req.params.taskId
-        Task.findOne({'_id': taskId, 'taskStatus': 'InProgress'}, (err, task_result) => {
+        Task.findOne({ '_id': taskId, 'taskStatus': 'InProgress' }, (err, task_result) => {
             if (err) { return res.boom.badRequest('Task Id not Found.'); }
             if (!task_result) { return res.boom.notFound('Not Found'); }
 
