@@ -2,9 +2,9 @@
 const Task = require("../models/task");
 
 const Joi = require('joi');
-
-const User = require("../models/user");
 //OK lets commit, but master is ahead 
+const User = require("../models/user");
+
 const pushNotify = require("../push_notification")
 const mongoose = require('mongoose');
 
