@@ -12,7 +12,7 @@ const earthradius = 6371
 const pi = 3.14
 let customerLat;
 let customerLng;
-let taskId;
+let task_Id;
 
 function sum(data) {
     let sum = 0;
@@ -96,11 +96,11 @@ module.exports = {
             if (!user_result || user_result.length == 0 || user_result == undefined || user_result == null) { return res.boom.notFound('No idle field engineer found') }
             //console.log(user_result)
 
-            taskId = req.params.taskId;
-            if (taskId == undefined || taskId == '' || taskId == null) {
-                return res.boom.badRequest('taskID required');
+            task_Id = req.params.task_Id;
+            if (task_Id == undefined || task_Id == '' || task_Id == null) {
+                return res.boom.badRequest('task_ID required');
             }
-            Task.findOne({ '_id': taskId, 'taskStatus': 'Pending' }, (err, task_result) => {
+            Task.findOne({ '_id': task_Id, 'taskStatus': 'Pending' }, (err, task_result) => {
                 if (err) { return res.boom.badRequest('Task Id not Found.'); }
                 if (!task_result) { return res.boom.notFound('NO pending task found.'); }
                 customerLat = task_result.latitude;
@@ -125,7 +125,7 @@ module.exports = {
                 User.findById(min_user_id, (err, user_result) => {
                     if (err) { return res.boom.badRequest(err); }
                     if (!user_result) { return res.boom.notFound() }
-                    user_result.taskQueue.push({ taskId, min });
+                    user_result.taskQueue.push({ task_Id, min });
                     if (user_result.taskQueue.length == 3) {
                         user_result.userLocation.status = 'Buzy' //SET ENG TO BUZY STATE, ONCE QUEUE FULL WITH 3 TASK
                     }
@@ -145,7 +145,7 @@ module.exports = {
                     return res.status(200).json({
                         results:
                         {
-                            taskId: taskId,
+                            task_Id: task_Id,
                             fieldEngineer: user_result.name
                         }
                     })
@@ -154,8 +154,8 @@ module.exports = {
         })
     },
     checkout: (req, res) => {
-        let taskId = req.params.taskId
-        Task.findOne({ '_id': taskId, 'taskStatus': 'InProgress' }, (err, task_result) => {
+        let task_Id = req.params.task_Id
+        Task.findOne({ '_id': task_Id, 'taskStatus': 'InProgress' }, (err, task_result) => {
             if (err) { return res.boom.badRequest('Task Id not Found.'); }
             if (!task_result) { return res.boom.notFound('Not Found'); }
 
@@ -169,7 +169,7 @@ module.exports = {
                 let SubtractionValue;
                 for (let i = 0; i < result.taskQueue.length; i++) {
 
-                    if (result.taskQueue[i].taskId == req.params.taskId) {
+                    if (result.taskQueue[i].task_Id == req.params.task_Id) {
                         SubtractionValue = result.taskQueue[i].min
                         result.taskQueue.splice(i, 1)
                     }
