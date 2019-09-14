@@ -2,7 +2,6 @@
 const Task = require("../models/task");
 
 const Joi = require('joi');
-//No Change just to test pull request
 const User = require("../models/user");
 
 const pushNotify = require("../push_notification")
