@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "asyncawait": "^1.0.7",
-    "bcrypt": "^3.0.3",
+    "bcrypt": "^5.0.0",
     "connect": "^3.6.6",
     "connect-multiparty": "^2.2.0",
     "e": "0.0.4",
