@@ -14,7 +14,7 @@
     "connect": "^3.6.6",
     "connect-multiparty": "^2.2.0",
     "e": "0.0.4",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "express-boom": "^2.0.0",
     "express-boom-2": "^0.4.0",
     "express-mailer": "^0.3.1",
